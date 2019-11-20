@@ -13,7 +13,7 @@ A RoleBinding may also reference a ClusterRole to grant the permissions to names
 * Create a new rolebinding that references the LDAP group that encompasses the LDAP users that will access the namespace with admin priveliges
 ** Format is `kubectl create rolebinding <name of new rolebinding> -n <namespace> [--clusterrole=<name> | --role=<name>] [--group=<LDAP group name>] [--user=<LDAP user name>]`
 ----
-kubectl create rolebinding admin-access -n kubeflow --clusterrole=admin --group=kubeflow-users
+kubectl create rolebinding admin-access -n kubeflow --clusterrole=admin --group=admins
 ----
 
 .For testing the basic LDAP container:
@@ -29,13 +29,16 @@ kubectl create rolebinding admin-access -n default --clusterrole=admin --user=ad
 * Good reference for what to update at: https://documentation.suse.com/suse-caasp/4/single-html/caasp-deployment/#_integrate_external_ldap_tls
 * Restart Dex and Gangway pods:
 * `kubectl --namespace=kube-system delete pod -l app=oidc-dex`
-* `kubectl --namespace=kube-system delete pod -l app=oidc-dex`
+* Verify new pods were started and are running: `kubectl get pods -n kube-system | grep dex`
+* `kubectl --namespace=kube-system delete pod -l app=oidc-gangway`
+* Verify new pods were started and are running: `kubectl get pods -n kube-system | grep gangway`
 
 .Add the Dex self-signed cert to the Admin node:
 
-NOTE: This seems to aleviate this error: "F1120 11:26:42.346992   10908 login.go:88] error on login: auth failed: failed to query provider "https://master.caaspv4.com:32000": Get https://master.caaspv4.com:32000/.well-known/openid-configuration: x509: certificate signed by unknown authority"
+NOTE: This seems to aleviate this error: "F1120 11:26:42.346992   10908 login.go:88] error on login: auth failed: failed to query provider "https://master.caaspv4.com:32000": Get https://master.caaspv4.com:32000/.well-known/openid-configuration: x509: certificate signed by unknown authority"Could also try `skube auth login` with: "-k, --insecure                Insecure SSL connection"
 
-* `kubectl exec -it -n kube-system oidc-dex-7748dc744d-7r4b8 cat /etc/dex/pki/ca.crt`
+
+* `kubectl exec -it -n kube-system $(kubectl get pod -n kube-system -l app=oidc-dex -o name | head -1) cat /etc/dex/pki/ca.crt`
 ----
 sudo cat <<EOF> /tmp/master.caaspv4.com:32000-ca.crt 
 -----BEGIN CERTIFICATE-----
