@@ -24,6 +24,14 @@ sudo podman exec my-openldap-container ldapsearch -x -H ldap://localhost -b dc=e
 * -D = The DN (Distinguished Name) to use to bind to the LDAP directory
 * -w = Password for the entity specified with -D (can use -W to prompt for the password)
 
+.Test a query from the CaaSPv4 Admin Node:
+* Install the client software: `sudo zypper install openldap2-client`
+* Test the query: `ldapsearch -x -H ldap://infra1.caaspv4.com -b dc=example,dc=org -D "cn=admin,dc=example,dc=org" -w admin`
+** Should return the same as on the localhost
+
+#### Move on to configure_dex.adoc to integrate CaaSPv4 with the LDAP server
+
+
 // vim: set syntax=asciidoc:
 
 
