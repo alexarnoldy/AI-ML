@@ -1,0 +1,25 @@
+
+
+.From k8s.io:
+----
+A RoleBinding may also reference a ClusterRole to grant the permissions to namespaced resources defined in the ClusterRole within the RoleBinding’s namespace. This allows administrators to define a set of common roles for the entire cluster, then reuse them within multiple namespaces.
+----
+
+.Creating new roles
+* One way to get the right apiGroups, resources, and verbs correct is to review the output of `kubectl get clusterrole admin -o yaml  | less`
+* Review the existing Roles: `kubectl get roles --all-namespaces`
+* Review the existing ClusterRoles: `kubectl get clusterroles`
+
+
+
+
+
+
+
+
+
+
+
+
+// vim: set syntax=asciidoc:
+
