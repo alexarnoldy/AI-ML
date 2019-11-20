@@ -16,10 +16,26 @@ A RoleBinding may also reference a ClusterRole to grant the permissions to names
 kubectl create rolebinding admin-access -n kubeflow --clusterrole=admin --group=kubeflow-users
 ----
 
+.For testing the basic LDAP container:
+* Create a new rolebinding for the LDAP admin user:
+----
+kubectl create rolebinding admin-access -n default --clusterrole=admin --user=admin
+----
+
+
 .Update the oidc-dex-config configmap:
 * `kubectl --namespace=kube-system edit configmap oidc-dex-config`
 * Just need to update the connectors portion
 * Good reference for what to update at: https://documentation.suse.com/suse-caasp/4/single-html/caasp-deployment/#_integrate_external_ldap_tls
+* Restart Dex and Gangway pods:
+* `kubectl --namespace=kube-system delete pod -l app=oidc-dex`
+* `kubectl --namespace=kube-system delete pod -l app=oidc-dex`
+
+.Test authentication:
+* `skuba auth login -s https://master.caaspv4.com:32000`
+** Currently getting error: "F1120 11:26:42.346992   10908 login.go:88] error on login: auth failed: failed to query provider "https://master.caaspv4.com:32000": Get https://master.caaspv4.com:32000/.well-known/openid-configuration: x509: certificate signed by unknown authority"
+
+ 
 
 
 
