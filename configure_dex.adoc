@@ -10,6 +10,18 @@ A RoleBinding may also reference a ClusterRole to grant the permissions to names
 * Review the existing Roles: `kubectl get roles --all-namespaces`
 * Review the existing ClusterRoles: `kubectl get clusterroles`
 
+* Create a new rolebinding that references the LDAP group that encompasses the LDAP users that will access the namespace with admin priveliges
+** Format is `kubectl create rolebinding <name of new rolebinding> -n <namespace> [--clusterrole=<name> | --role=<name>] [--group=<LDAP group name>] [--user=<LDAP user name>]`
+----
+kubectl create rolebinding admin-access -n kubeflow --clusterrole=admin --group=kubeflow-users
+----
+
+.Update the oidc-dex-config configmap:
+* `kubectl --namespace=kube-system edit configmap oidc-dex-config`
+* Good reference at: https://documentation.suse.com/suse-caasp/4/single-html/caasp-deployment/#_integrate_external_ldap_tls
+
+
+
 
 
 
