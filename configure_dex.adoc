@@ -9,9 +9,34 @@ A RoleBinding may also reference a ClusterRole to grant the permissions to names
 * One way to get the right apiGroups, resources, and verbs correct is to review the output of `kubectl get clusterrole admin -o yaml  | less`
 * Review the existing Roles: `kubectl get roles --all-namespaces`
 * Review the existing ClusterRoles: `kubectl get clusterroles`
+* An example role manifest:
+----
+cat <<EOF> kubeflow-user.yaml
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: kubeflow-user
+  namespace: kubeflow
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods/attach
+  - pods/exec
+  - pods/portforward
+  - pods/proxy
+  - secrets
+  - services/proxy
+  verbs:
+  - get
+  - list
+  - watch
+EOF
+----
+* Apply that manifest with `kubectl apply -f kubeflow-user.yaml`
 
-* Create a new rolebinding that references the LDAP group that encompasses the LDAP users that will access the namespace with admin priveliges
-** Format is `kubectl create rolebinding <name of new rolebinding> -n <namespace> [--clusterrole=<name> | --role=<name>] [--group=<LDAP group name>] [--user=<LDAP user name>]`
+.Create a new rolebinding that references the LDAP group that encompasses the LDAP users that will access the namespace with admin priveliges
+* Format is `kubectl create rolebinding <name of new rolebinding> -n <namespace> [--clusterrole=<name> | --role=<name>] [--group=<LDAP group name>] [--user=<LDAP user name>]`
 ----
 kubectl create rolebinding admin-access -n kubeflow --clusterrole=admin --group=admins
 ----
