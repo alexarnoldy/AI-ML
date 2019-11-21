@@ -28,6 +28,7 @@ sudo podman exec my-openldap-container ldapsearch -x -H ldap://localhost -b dc=e
 * Install the client software: `sudo zypper install openldap2-client`
 * Test the query: `ldapsearch -x -H ldap://infra1.caaspv4.com -b dc=example,dc=org -D "cn=admin,dc=example,dc=org" -w admin`
 ** Should return the same as on the localhost
+** Query is fully dependent on correct Distinguished Names (DN), if the searchbase DN or user DN aren't correct, the query will fail
 
 #### Move on to configure_dex.adoc to integrate CaaSPv4 with the LDAP server
 
