@@ -86,7 +86,11 @@ EOF
 * `skuba auth login -s https://master.caaspv4.com:32000`
 
 
-
+.Configure Gangway to accept Dex's certs
+* `cp -p /tmp/master.caaspv4.com:32000-ca.crt /tmp/master.caaspv4.com:32001-ca.crt`
+----
+for WORKER in `grep wrkr .all_nodes`; do echo $WORKER; scp /tmp/mstr.suse.hpc.local\:32001-ca.crt $WORKER:/tmp/; ssh $WORKER sudo mv /tmp/mstr.suse.hpc.local\:32001-ca.crt /etc/pki/trust/anchors/; ssh $WORKER sudo update-ca-certificates; done
+----
 
 
 
