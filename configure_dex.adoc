@@ -60,14 +60,14 @@ CAUTION: Be sure to verify the full Distinguished Names for everything that goes
 * Just need to update the connectors portion
 * Good reference for what to update at: https://documentation.suse.com/suse-caasp/4/single-html/caasp-deployment/#_integrate_external_ldap_tls
 ** If availabe, gather the needed information from a rootUser .ldif file:
+*** Set the filename: `export FILENAME=""`
 *** For `host:` use the IP address or FQDN and port for the LDAP server
-*** For `rootCAData:` follow the instructions to base64 encode the root CA Certificate
-**** Insert one space and the encoded certificate
+*** For `rootCAData:` follow the instructions in the document above to base64 encode the root CA Certificate
+**** Insert one space and the encoded certificate after `rootCAData:`
 **** If no root CA certificate from the LDAP server is available, delete the `rootCAData:` line and insert `insecureNoSSL: true` and `insecureSkipVerify: true`
 *** For `bindDN:` 
-**** Set the filename: `export FILENAME=""`
 **** Set the username: `export USERNAME=""`
-**** Search for `grep ^dn:\ cn=$USERNAME $FILENAME`
+**** Search for `grep ^dn:\ uid=$USERNAME $FILENAME`
 **** Insert one space and the full path for the user after `bindDN:`
 *** For `baseDN:` under `userSearch:`
 **** Search for `grep -i ^dn:\ cn=users $FILENAME`
