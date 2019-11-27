@@ -59,6 +59,23 @@ CAUTION: Be sure to verify the full Distinguished Names for everything that goes
 * `kubectl --namespace=kube-system edit configmap oidc-dex-config`
 * Just need to update the connectors portion
 * Good reference for what to update at: https://documentation.suse.com/suse-caasp/4/single-html/caasp-deployment/#_integrate_external_ldap_tls
+** If availabe, gather the needed information from a rootUser .ldif file:
+*** For `host:` use the IP address or FQDN and port for the LDAP server
+*** For `rootCAData:` follow the instructions to base64 encode the root CA Certificate
+**** Insert one space and the encoded certificate
+**** If no root CA certificate from the LDAP server is available, delete the `rootCAData:` line and insert `insecureNoSSL: true` and `insecureSkipVerify: true`
+*** For `bindDN:` 
+**** Set the filename: `export FILENAME=""`
+**** Set the username: `export USERNAME=""`
+**** Search for `grep ^dn:\ cn=$USERNAME $FILENAME`
+**** Insert one space and the full path for the user after `bindDN:`
+*** For `baseDN:` under `userSearch:`
+**** Search for `grep -i ^dn:\ cn=users $FILENAME`
+**** Insert one space and the full path for the users object after `baseDN:`
+*** For `baseDN:` under `groupSearch:`
+**** Search for `grep -i ^dn:\ cn=groups $FILENAME`
+**** Insert one space and the full path for the users object after `baseDN:`
+
 * Restart Dex and Gangway pods:
 * `kubectl --namespace=kube-system delete pod -l app=oidc-dex`
 * Verify new pods were started and are running: `kubectl get pods -n kube-system | grep dex`
