@@ -61,7 +61,9 @@ CAUTION: Be sure to verify the full Distinguished Names for everything that goes
 * Good reference for what to update at: https://documentation.suse.com/suse-caasp/4/single-html/caasp-deployment/#_integrate_external_ldap_tls
 ** If availabe, gather the needed information from a rootUser .ldif file:
 *** Set the filename: `export FILENAME=""`
-*** For `host:` use the IP address or FQDN and port for the LDAP server
+*** For `host:` 
+**** Find the FQDN and port for the LDAP server: `grep ^dn:\ dnaHostname $FILENAME`
+**** Insert one space and the IP address or FQDN and port for the LDAP server
 *** For `rootCAData:` follow the instructions in the document above to base64 encode the root CA Certificate
 **** Insert one space and the encoded certificate after `rootCAData:`
 **** If no root CA certificate from the LDAP server is available, delete the `rootCAData:` line and insert `insecureNoSSL: true` and `insecureSkipVerify: true`
@@ -75,6 +77,9 @@ CAUTION: Be sure to verify the full Distinguished Names for everything that goes
 *** For `baseDN:` under `groupSearch:`
 **** Search for `grep -i ^dn:\ cn=groups $FILENAME`
 **** Insert one space and the full path for the users object after `baseDN:`
+* Write and close the editor
+
+CAUTION: May of of the required userSearch and groupSearch parameters are set based on the specific configuration of the LDAP server. Consult with the LDAP administrator to set these correctly.
 
 * Restart Dex and Gangway pods:
 * `kubectl --namespace=kube-system delete pod -l app=oidc-dex`
