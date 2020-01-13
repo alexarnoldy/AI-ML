@@ -35,7 +35,7 @@ EOF
 ----
 * Apply that manifest with `kubectl apply -f kubeflow-user.yaml`
 
-.Create a new rolebinding that references the LDAP group that encompasses the LDAP users that will access the namespace with admin priveliges
+.Create a new rolebinding that references the LDAP group that contains the LDAP users that will access a specific namespace with admin priveliges
 * Format is `kubectl create rolebinding <name of new rolebinding> -n <namespace> [--clusterrole=<name> | --role=<name>] [--group=<LDAP group name>] [--user=<LDAP user name>]`
 ----
 kubectl create rolebinding admin-access -n kubeflow --clusterrole=admin --group=admins
@@ -59,7 +59,7 @@ CAUTION: Be sure to verify the full Distinguished Names for everything that goes
 * `kubectl --namespace=kube-system edit configmap oidc-dex-config`
 * Just need to update the connectors portion
 * Good reference for what to update at: https://documentation.suse.com/suse-caasp/4/single-html/caasp-deployment/#_integrate_external_ldap_tls
-** If availabe, gather the needed information from a rootUser .ldif file:
+** If a rootUser.ldif file is available, gather the needed information from it:
 *** Set the filename: `export FILENAME=""`
 *** For `host:` 
 **** Find the FQDN and port for the LDAP server: `grep ^dn:\ dnaHostname $FILENAME`
