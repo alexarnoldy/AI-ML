@@ -1,0 +1,21 @@
+
+#### Rough notes
+
+.Artificial Intelligence Business Challenge
+* AI/ML/DL market is exploding in both new applications and new technologies
+* What it lacks is an adequate supply of qualified Data Scientists and AI Operators
+** This forces Data Scientists to spend time learning to adapt their models to specific AI Platforms
+** It also leaves AI Operations without the ability to effectively manage the comapany's AI Platforms 
+** It also adds friction in adopting new AI platforms in the form of excessive time to value
+** It also means adopting new AI Platforms won't return value until Data Scientists adapt their models to the new platform
+
+.SUSE AI Orchestrator Business Value
+* When SUSE set out to create a new, indispensible tool for its customers, we followed three primary guidelines:
+** Ensure Data Scientists are able to stay focused on creating, analyzing, and refining their data models
+** Return control of the AI Platforms, and the expendatures on them, to AI Operations
+** Enable new avenues of collaboration between Data Scientists and AI Operators
+
+
+
+
+// vim: set syntax=asciidoc:
