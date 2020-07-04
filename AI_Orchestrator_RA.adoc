@@ -15,7 +15,15 @@
 ** Return control of the AI Platforms, and the expendatures on them, to AI Operations
 ** Enable new avenues of collaboration between Data Scientists and AI Operators
 
-
+.Random Thoughts
+* DS has to adapt her model into a pipeline for a specific platform
+** Often an effort of trial and error to find the right combination of code and runtime options
+** SAIO allows DS to create model in their development platform of choice 
+** DS points SAIO to their AI/ML model in any Git repo 
+** DS collaborates with AIO to determine the needs of the model and the priority (and thus the requied cost) of the analysis
+** SAIO figures out how to adapt the model to the chosen platform
+** Any errors found in the model can be fixed in the Git repo and the analysis re-run immediately
+** End result is that DS doesn't need to know anything about the AI Platforms and AI Operations can help DS run the model on the platform that best fits the need at that moment
 
 
 // vim: set syntax=asciidoc:
