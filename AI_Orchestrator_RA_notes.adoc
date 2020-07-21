@@ -27,6 +27,8 @@
 ** SAIO figures out how to adapt the model to the chosen platform
 ** Any errors found in the model can be fixed in the Git repo and the analysis re-run immediately
 ** End result is that DS doesn't need to know anything about the AI Platforms and AI Operations can help DS run the model on the platform that best fits the need at that moment
+** "For all of the AI Operations teams who feel stuck between managing a chaotic mixture of AI/ML tools and being trapped in vendor-lock-in platform, SUSE offers a solution to both."
+** "The AI Orchestrator can even help identify where data gravity is working against the best AI platform for a particular phase of a project."
 
 .A Closer Look: The Data Scientist
 * The Data Scientist is the most important element in any Artificial Intelligence inititive. The more time she can spend creating, analyzing, and refining her data models more chances of success the project will have. Unfortunately, the reality is that there are several other elements of the project that will siphone off her time. Several of these come in the form of the well known https://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf[Hidden Technical Debt of Machine Learning Systems]. With the persistent lack of qualified AI Operators, solving the elements of technical debt often falls on the shoulders of the Data Scientist.
