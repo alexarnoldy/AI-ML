@@ -1,0 +1,44 @@
+## SUSE AI Orchestrator Brings Order To The Aritificial Intelligence Infrastructure Landscape
+
+#### Artificial Intelligence / Machine Learning: The Opportunity
+
+* 
+* 
+* 
+
+
+#### Artificial Intelligence / Machine Learning: The Challenge
+
+The Artificial Intelligence marketplace is growing at a break-neck pace. New technologies in AI/ML workspace, infrastructure, data maanagement and data analysis are being released faster than in any other sector of IT. Unfortunately, as much as the AI market has in exciting new technology, it also lacks in available talent to take full advantage of that technology.
+
+Several analysts have pointed out the https://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf[Hidden Technical Debt of Machine Learning Systems], but the scope of how the limited availability of qualified Data Scientists, AI Engineers, and AI Operators forces AI teams to share the burden of the techncial debt; often to the detriment their own specialties, and the overall project. 
+
+
+#### SUSE AI Orchetrator: The Solution
+When SUSE set out to create a new, indispensible AI/ML tool for its customers, we were certain that we didn't want to create just another workspace/orchestrator/analysis tool. What the wild west that is AI/ML needs more than anything else is a tool that returns control of the tools to the AI consumer and improves the chances of success for every AI/ML project.
+
+From the outset, in creating the SUSE AI Orchestrator we followed three primary guidelines: 
+* Ensure Data Scientists are able to stay focused on creating, analyzing, and refining their data models
+* Return control of the AI Platforms, and the expendatures on them, to AI Operations
+* Enable new avenues of collaboration between Data Scientists, AI Engineers, and AI Operators
+
+.A Closer Look: The Data Scientist
+The Data Scientist is the most important element in any Artificial Intelligence inititive. The more time she can spend creating, analyzing, and refining her data models more chances of success the project will have. Unfortunately, the reality is that there are several other elements of the project that will siphone off her time. 
+
+Often, Data Scientists prefer to build, and initally test, their models on their own local workstation. This gives them full control of the AI platform and tends to work well for the initial process of creating a model. However, to fully vet a data model, often a much larger data set, and thus much more computing power is required. Translating the data analysis model into a full pipeline that collects, organizes and cleans the larger dataset; provides the desired final output (NTS: Need much better view of what it takes to go from basic model to runnable pipeline) takes valuable time that the Data Scientist could be using to continue to build a model into a production ready artifact.
+
+Once the data model is runable as an AI pipeline, the project will often stick to that platform, even if it's not be the optimal one. The desire to avoid having to adapt data models to a new analysis platform can slow productivity and eventually doom the project entirely. 
+
+What is desparetly need is the flexibility to run data models on various AI platforms in a highly dynamic way. By automatically adapting the data model to the chosen AI platform, SUSE AI Orchestrator relieves the Data Scientist of the burden of learning each AI platform and lets him focus on what he does best.
+
+
+
+
+
+
+
+
+
+
+
+// vim: set syntax=asciidoc:
