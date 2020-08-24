@@ -9,13 +9,13 @@
 
 #### Artificial Intelligence / Machine Learning: The Challenge
 
-The Artificial Intelligence marketplace is growing at a break-neck pace. New technologies in AI/ML workspace, infrastructure, data maanagement and data analysis are being released faster than in any other sector of IT. Unfortunately, as much as the AI market has in exciting new technology, it also lacks in available talent to take full advantage of that technology.
+The world of Artificial Intelligence is growing at a break-neck pace. New technologies in AI/ML workspace, infrastructure, data maanagement and data analysis are being released faster than in any other sector of Enterprise technology. Unfortunately, as much exciting AI technology there is available, there is a massive lack of available talent to take full advantage of it.
 
-Several analysts have pointed out the https://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf[Hidden Technical Debt of Machine Learning Systems], but the scope of how the limited availability of qualified Data Scientists, AI Engineers, and AI Operators forces AI teams to share the burden of the techncial debt; often to the detriment their own specialties, and the overall project. 
+Several industry analysts have pointed out the https://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf[Hidden Technical Debt of Machine Learning Systems], but what is less well understood is how the limited availability of qualified Data Scientists, AI Engineers, and AI Operators forces AI teams to share the burden of the techncial debt. Often, the demand for highly skilled engineers and scientists to work outside their specialties causes significant detriment their primary tasks, and to the overall project. 
 
 
 #### SUSE AI Orchetrator: The Solution
-When SUSE set out to create a new, indispensible AI/ML tool for its customers, we were certain that we didn't want to create just another workspace/orchestrator/analysis tool. What the wild west that is AI/ML needs more than anything else is a tool that returns control of the tools to the AI consumer and improves the chances of success for every AI/ML project.
+When SUSE set out to create a new, indispensible AI/ML tool for its customers, we were certain that we didn't want to create just another workspace/orchestrator/training/analysis tool. What the wild west that is AI/ML needs more than anything else is a tool that returns control of the tools to the AI consumer and improves the chances of success for every AI/ML project.
 
 From the outset, in creating the SUSE AI Orchestrator we followed three primary guidelines: 
 * Ensure Data Scientists are able to stay focused on creating, analyzing, and refining their data models
