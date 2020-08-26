@@ -68,6 +68,7 @@ One of the most popular storage solutions available for containerized workloads 
 NOTE: Such integrations, with solutions like {CompanyName} {ProductNameSES}, are detailed in other reference documents.
 
 == Solution Details
+This document focuses on the advanages of an {marketcategoryabbreviation} solution stack centered around the {CompanyName} {ProductName}.
 
 This document focuses on a new {CompanyName} {ProductName} deployment which could be scaled over time. A starting point could be a single hypervisor host with virtual machines set up for each of the needed roles to create a basic, minimal cluster to simply evaluate functionality. Over time more physical nodes could be added to augment the cluster or to replace some of the initial, virtual-machine-based roles. To provide a production-ready cluster and take advantage of the {IHVPartner} {IHVPlatform} platform and it's composable features, the following figure shows the target logical cluster deployment:
 

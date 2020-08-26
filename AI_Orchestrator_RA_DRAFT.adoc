@@ -11,7 +11,7 @@
 
 The world of Artificial Intelligence is growing at a break-neck pace. New technologies in AI/ML workspace, infrastructure, data maanagement and data analysis are being released faster than in any other sector of Enterprise technology. Unfortunately, as much exciting AI technology there is available, there is a massive lack of available talent to take full advantage of it.
 
-Several industry analysts have pointed out the https://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf[Hidden Technical Debt of Machine Learning Systems], but what is less well understood is how the limited availability of qualified Data Scientists, AI Engineers, and AI Operators forces AI teams to share the burden of the techncial debt. Often, the demand for highly skilled engineers and scientists to work outside their specialties causes significant detriment their primary tasks, and to the overall project. 
+Several industry analysts have pointed out the https://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf[Hidden Technical Debt of Machine Learning Systems], but what is less well understood is how the limited availability of qualified Data Scientists, AI Engineers, and AI Operations personnel forces AI teams to share the burden of the techncial debt. Often, the need for highly skilled engineers and scientists to work outside their specialties causes significant detriment their primary tasks, and to the overall project. 
 
 
 #### SUSE AI Orchetrator: The Solution
@@ -25,7 +25,11 @@ From the outset, in creating the SUSE AI Orchestrator we followed three primary 
 .A Closer Look: The Data Scientist
 The Data Scientist is the most important element in any Artificial Intelligence inititive. The more time she can spend creating, analyzing, and refining her data models more chances of success the project will have. Unfortunately, the reality is that there are several other elements of the project that will siphone off her time. 
 
-Often, Data Scientists prefer to build, and initally test, their models on their own local workstation. This gives them full control of the AI platform and tends to work well for the initial process of creating a model. However, to fully vet a data model, often a much larger data set, and thus much more computing power is required. Translating the data analysis model into a full pipeline that collects, organizes and cleans the larger dataset; provides the desired final output (NTS: Need much better view of what it takes to go from basic model to runnable pipeline) takes valuable time that the Data Scientist could be using to continue to build a model into a production ready artifact.
+Often, Data Scientists prefer to build, and initally test, their models on their own local workstation. This gives them full control of the AI platform and tends to work well for the initial process of model development. However, to move the model into the next phases of development, the work needs to continue with more computing power and a much larger data set. In addition, many data processing and model tuning steps must be taken as the model (and even multiple variations of the model) continue through development. 
+
+Unfortunately, far too often a data science team will perform many of these operations manually, or with custom scripts and "one-off" tools. In the end, they will spend more time cultivating a custom ecosphere for a single project than XYZ.
+
+Translating the data analysis model into a full pipeline that collects, organizes and cleans the larger dataset; provides the desired final output (NTS: Need much better view of what it takes to go from basic model to runnable pipeline) takes valuable time that the Data Scientist could be using to continue to build a model into a production ready artifact.
 
 Once the data model is runable as an AI pipeline, the project will often stick to that platform, even if it's not be the optimal one. The desire to avoid having to adapt data models to a new analysis platform can slow productivity and eventually doom the project entirely. 
 
