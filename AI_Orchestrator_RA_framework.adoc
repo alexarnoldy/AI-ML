@@ -32,203 +32,48 @@ Implementing an intelligent, automation-focused management layer, such as {produ
 This document is intended for IT decision makers, architects, data scientists and AI operators who are implementing an ever increasing number of {marketcategoryabbreviation} projects; and struggling under the friction of bringing {marketcategoryabbreviation} models from design to revenue generating production.  You should be familiar with the traditional IT infrastructure pillars—networking, computing and storage—along with key concepts in the field of developing, testing, and deploying {marketcategory} predictive models.
 
 == Solution Overview
-When SUSE set out to create a new, indispensible AI/ML tool for its customers, we were certain that we didn't want to create just another framework/training/analysis tool. What the wild west of {marketcategoryabbreviation} needs more than anything else is a tool that returns control of the tools to the AI consumer and improves the chances of success for every AI/ML project.
+When SUSE set out to create a new, indispensible {marketcategoryabbreviation} tool for its customers, we were certain that we didn't want to create just another framework/training/analysis tool. What the wild west of {marketcategoryabbreviation} needs more than anything else is a tool that returns control of the tools to the AI consumer and improves the chances of success for every AI/ML project.
 
-From the outset, in creating the SUSE AI Orchestrator we followed three primary guidelines: 
+From the outset, in creating the SUSE {productname} we followed several primary guidelines: 
 * Enable Data Scientists to stay focused on the creative end of data model design and development
 * Significantly improve the visibility and control of the AI Platforms, as well as the expendatures that go with them, to the AI Operations teams
 * Improve cross team visibility and enable new avenues of collaboration between Data Scientists, AI Engineers, and AI Operators
+* Enable model pipeline execution on virtually any platform, from a single workstation, to Kubeflow, to any public cloud provider; all without having to rewrite any part of the model or pipeline definition.
 
-As an {marketcategoryabbreviation} pipeline development tool, the SUSE {productname} has the ability to manage operations on multiple platforms. With its large community of developers and a plethora of features and capabilities, the he initial focus of the {productname} is Kubeflow running on SUSE {productnamecaasp}. 
+
+As an {marketcategoryabbreviation} pipeline development and management tool, the SUSE {productname} has the ability to manage operations on multiple platforms. With its large community of developers and a plethora of features and capabilities, the he initial focus of the {productname} is Kubeflow running on SUSE {productnamecaasp}. 
 
 
 == Solution Components
 
 === Facility
-While beyond the scope of this document, the heating, ventilation, air conditioning (HVAC) requirements of hosting such an infrastructure solution should be carefully considered and planned. To aid in determining the power requirements for system deployment, use the online or downloadable version of https://h20195.www2.hpe.com/v2/GetPDF.aspx/4AA6-2925ENW.pdf[{IHVPartner} Power Advisor]. Using this tool, you can plan for the needs for your solution and order the correct Power Distribution Unit (PDU) to account for the local power conditions and connections in the final installation location.
+SUSE {productname} is a fully containerized Linux application and thus can run on any platform that is configured to run Linux containers. While a small data science team may choose to run the {productname} on a workstation, most customers will likely prefer to run it within a highly resilient container ochestrator, such as SUSE {productnamecaasp}.
 
-=== Network
-Networking and the associated services are the technology components that typically require the most advanced planning. Connectivity, capacity and bandwidth requirements for a CaaS infrastructure have a fair amount of complexity, especially when integrated with an existing IT infrastructure and accounting for the magnitude of microservices being deployed.
+=== {marketcategoryabbreviation} Platform
+Kubeflow is a open-source machine learning platform that enables running machine learning projects on a highly resilient and scalable Kubernetes platform. Kubeflow is actually a collection of nearly a dozen different {marketcategoryabbreviation} frameworks and tools including Jupyter Notebook, TensorFlow, and Pytorch. Being a Kubernetes application suite, the installation and initial configuration is deceptively simple; though the resultant set of applications is one of the most powerful in the industry.
 
-With the inherent features and composability aspect of {IHVPartner} {IHVPlatform} much of the configuration complexity for network interconnects can easily be codified into a template for each target resource node. This includes the mapping of network interfaces to network fabrics within a collection of managed {IHVPartner} {IHVPlatform} frames. The baseline network bandwidth provided by {IHVPartner} {IHVPlatform}, for each resource node and collectively within the frame, provided by {IHVPartner} {IHVPlatform} is sufficient for a CaaS deployment. While beyond the scope of this document, the only remaining consideration is for capacity and bandwidth for the interconnecting top-of-rack switches. In addition, access to the {IHVPartner} {IHVPlatformBMC} for each resource node can be effectively coordinated and managed through the user interface of {IHVPartner} {IHVPlatform} {IHVPlatformComposer}.
+=== {productnamecaasp} Platform
+{CompanyName} {ProductName} is an enterprise-class container management solution that enables IT and DevOps professionals to more easily deploy, manage, and scale container-based applications and services. It includes Kubernetes to automate lifecycle management of modern applications and surrounding technologies that enrich Kubernetes and make the platform itself easy to operate. As a result, enterprises that use {CompanyName} {ProductName} can reduce application delivery cycle times and improve business agility.
 
-=== Computing
+{CompanyName} is focused on delivering an exceptional operator experience with {CompanyName} {ProductName}. With deep competencies in infrastructure, systems, process integration, platform security, lifecycle management and enterprise-grade support, {CompanyName} aims to ensure that IT operations teams can deliver the power of Kubernetes to their users quickly, securely and efficiently.
 
-ifeval::["{IHVPlatform}" == "Synergy"]
+With {CompanyName} {ProductName} you can: * Achieve faster time to value with an enterprise-ready container management platform, built from industry-leading technologies, and delivered as a complete package — with everything you need to quickly offer container services. * Simplify management and control of your container platform with efficient installation, easy scaling, and update automation. * Maximize return on your investment, with a flexible container services solution for today and tomorrow.
 
-include::../../../../_includes/IHV/{IHVPartner}-{IHVPlatform}.adoc[]
-
-endif::[]
-
-ifeval::["{IHVPlatform}" == "Synergy"]
-
-include::../../../../_includes/IHV/{IHVPartner}-{IHVPlatform}-Frame.adoc[]
-
-endif::[]
-
-ifeval::["{IHVPlatform}" == "Synergy"]
-
-include::../../../../_includes/IHV/{IHVPartner}-{IHVPlatform}-{IHVPlatformComposer}.adoc[]
-
-endif::[]
-
-ifeval::["{IHVPlatform}" == "Synergy"]
-
-include::../../../../_includes/IHV/{IHVPartner}-{IHVPlatform}-{IHVPlatformImager}.adoc[]
-
-endif::[]
-
-ifeval::["{IHVPlatform}" == "Synergy"]
-
-include::../../../../_includes/IHV/{IHVPartner}-{IHVPlatform}-SY.adoc[]
-
-endif::[]
-
-For this the implementation, {IHVPartner} {IHVPlatform} {IHVPlatformModel} servers were utilized for all node roles. Example configurations are included in the "Resources and Additional Links" section.
-
-NOTE: Any https://www.suse.com/yessearch/[{CompanyName} YES] certified {IHVPartner} platform, like the {IHVPartner} {IHVPlatform} {IHVPlatformModel}, can be used for the physical nodes of this deployment, as long as the certification refers to the major version of the underlying {CompanyName} operating system required by the {CompanyName} {ProductName} release.
 
 === Storage
-Each of the resource nodes is expected to have some local, direct-attach storage, which is predominantly used for the node's operating system. For this deployment, a pair of disk drives, configured as a RAID1 volume, via the {IHVPartner} {IHVPlatform} {IHVPlatformComposer} templates for the operating system helps to provide fewer points of failure.
-
-This storage configuration is also used for the ephemeral container images running on any given node. These are simply copies of the reference container image version, obtained from a centralized location like a registry, which is utilized during the workload's runtime. Afger the workload is terminated or moved, this disk space is reclaimed and becomes available for subsequent usages.
-
-TIP: This local storage element can become both a limiter for both the number and size of container workloads running on a given node plus; it can also become a performance limiter. As such, having performant local storage devices (such as solid-state drives) is encouraged. Monitoring of workloads and scale can also help to determine if capacity or performance constraints are becoming an issue.
-
-For any stateful microservice deployments, additional storage technologies should be integrated to house persistent volumes. Both static and dynamic volume claims can be utilized via the modular Container-Storage-Interface (CSI) technologies. A commonly utilized approach for these non-cloud-native workloads requiring persistent storage is a Ceph-based, software-defined storage infrastructure.  This solution can provide block and file, or other protocol integration options with a Kubernetes-based CaaS platform.
+Many of the Kubeflow applications leverage a large amount of highly available, highly resilient, persistent storage.
+SUSE {productnamecaasp} can access both network block and object storage via the modular Container-Storage-Interface (CSI) technologies. 
+One of the most popular storage solutions available for containerized workloads is SUSE {productnameses}, which is a Ceph-based, software-defined storage infrastructure. In addition to versatility, SUSE {productnameses} can scale into the dozens of petabytes while scaling linearly in performance.
 
 NOTE: Such integrations, with solutions like {CompanyName} {ProductNameSES}, are detailed in other reference documents.
-
-=== Software
-
-ifeval::["{ProductName}" == "CaaS Platform"]
-
-include::../../../../_includes/Products/SUSE-CaaS-Platform.adoc[]
-
-endif::[]
 
 == Solution Details
 
 This document focuses on a new {CompanyName} {ProductName} deployment which could be scaled over time. A starting point could be a single hypervisor host with virtual machines set up for each of the needed roles to create a basic, minimal cluster to simply evaluate functionality. Over time more physical nodes could be added to augment the cluster or to replace some of the initial, virtual-machine-based roles. To provide a production-ready cluster and take advantage of the {IHVPartner} {IHVPlatform} platform and it's composable features, the following figure shows the target logical cluster deployment:
 
-[[img-DeployLV]]
-.Deployment Logical View
-image::Deployment-Logical-View.png[Deployment-Logical-View, 640, 480]
-
-=== Deployment Flow
-The remainder of this section is a companion guide to the official network, system and software product deployment documentation, citing specific settings as needed for this reference implementation. Default settings are assumed to be in use, unless otherwise cited, to accomplish the respective best practices and design decisions herein.
-
-Given the detailed information contained in the https://www.suse.com/documentation/suse-caasp-3/[{CompanyName} {ProductName} Deployment Guide] Guide, only the following additional, incremental configurations and modifications are described below:
-
-Pre-Installation Checklist::
-* Obtain the following software media and documentation artifacts:
-** Download {CompanyName} {ProductName} x86_64 install media (DVD1) from the https://download.suse.com/Download?buildid=z7ezhywXXRc~[{CompanyName} {ProductName} site].
-*** To ensure access to technical support and software updates, utilize either trial or purchased subscriptions for all resource nodes. The bill of materials section in the “Resources and Additional Links” section outlines the type and quantity of subscriptions needed.
-*** Obtain and preview the https://www.suse.com/documentation/suse-caasp-3/index.html[{CompanyName} {ProductName}] documentation, focusing on the:
-*** Installation Quick Start
-*** Deployment Guide
-* Create an {IHVPartner} {IHVPlatform} {IHVPlatformComposer} template to address:
-** Minimum CPU/Memory/Disk/Networking requirements of {CompanyName} {ProductName} being applied to any available {IHVPartner} {IHVPlatform} resource nodes.  See the in https://www.suse.com/documentation/suse-caasp-3/[{CompanyName} {ProductName} Deployment Guide] for this information.
-** Consistent and up-to-date versions for BIOS/uEFI/device firmware to reduce potential troubleshooting issues later .
-** The BIOS/uEFI settings are reset to defaults for a known baseline, consistent state or with desired values.
-** Use of either local or shared direct-attach storage elements, in a RAID1 configuration, to be used as the operating system installation target.
-** Network interfaces, including {IHVPartner} {IHVPlatformBMC} are configured as desired to match the target network topology and connectivity.
-* Verify the following considerations for various network service configurations are ready to access:
-** Ensure that you have access to a valid, reliable external NTP service; this is a critical requirement for all nodes.
-** Set up external DNS A records for all nodes. Decide on subnet ranges and configure the switch ports accordingly to match the nodes in use.
-** Ensure that you have access to software security updates and fixes by registering nodes to the http://scc.suse.com[SUSE Customer Center], or by creating a local https://www.suse.com/documentation/sles-12/singlehtml/book_smt/book_smt.html[Subscription Management Tool] service.
-
-Administration Node Installation::
-Install the {CompanyName} {ProductName} Platform Administration Node either as a virtual machine or as the first physical resource node.
-* Apply the {IHVPartner} {IHVPlatform} {IHVPlatformComposer} template to the target resource node in the {IHVPartner} {IHVPlatform} frame.
-* If a physical node, configure the following {IHVPartner} {IHVPlatformBMC} virtual media image for use: {CompanyName} {ProductName} ISO image (bootable)
-
-NOTE: For the sake of consistency in this document, the installation process used across all nodes, whether virtual or physical, was done from ISO images. Other options are available as noted in the https://www.suse.com/documentation/suse-caasp-3/[{CompanyName} {ProductName} Deployment Guide].
-
-* Follow the "Installing the Administration Node" steps described in the https://www.suse.com/documentation/suse-caasp-3/[{CompanyName} {ProductName} Deployment Guide].
-* When the installation is complete and the system reboots, use a client system to access the Velum Dashboard web-interface at the Fully-Qualified Doman Name (FQDN) of the Administration Node.
-* Continue the setup described in the "Configuring the Administration Node" section of the https://www.suse.com/documentation/suse-caasp-3/[{CompanyName} {ProductName} Deployment Guide]. Ensure the following items are addressed:
-** On the home page, select "Create Admin" to set up an account with a valid email address and password. Then log in and do the following:
-*** Check the "Install Tiler (Helm's server component)" box in "Cluster Services" as this will be used extensively later.
-*** Ensure the Overlay and Service network settings match the desired values, if the default values are not satisfactory.
-*** Select the desired container runtime. For this deployment, the Docker open source engine was used.
-** On the "Bootstrap your CaaS Platform" page:
-*** Refer to the location of the 'AutoYast' file, in case you'd like to help automate other resource node installations.
-
-Master and Worker Nodes Installation::
-Begin the installation of the remaining resource nodes; at least three are required for a minimal cluster.
-
-NOTE: To provide more resiliency and failover capabilities, it is recommended to install three Master Nodes plus two Worker Nodes. Additional nodes, for master or worker roles, can be added to the cluster or swapped into the cluster at any point in time.
-
-* As with the install of the Administration Node, apply the respective {IHVPartner} {IHVPlatform} {IHVPlatformComposer} template and use the {IHVPartner} {IHVPlatformBMC} virtual media
-* Complete the installation steps as described in the "Installing Master and Worker Nodes" section of the https://www.suse.com/documentation/suse-caasp-3/[{CompanyName} {ProductName} Deployment Guide]
-
-HAProxy Setup::
-Either a load-balancer or HAProxy is a suggested approach to make the cluster accessible to client systems and, more specifically, to some of the Kubernetes Master Node API functions.. It does this via a virtual IP address, which then sends the call to any active masters. While not required for a single master cluster, setting this up in advance allows for expansion and substitutions later on.
-
-* For HAProxy, this process can be run on any host or virtual machine that has access to the cluster network. The steps to deploy this service are described in the "Configuring Load Balancing with HAProxy" section of the https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha/book_sleha.html#sec.ha.lb.haproxy[{CompanyName} Linux Enterprise High Availability Extenstion 12 SP3 Administration Guide].
-
-NOTE: As noted in the https://www.suse.com/documentation/suse-caasp-3/[{CompanyName} {ProductName} Deployment Guide], HAProxy should be configured to provide load balancing for the Kubernetes API server (port 6443) and for DEX (OIDC Connect, port 32000). Also ensure that the "stats" configuration stanza does not conflict with any other services (default of port 80) on the target node.
-
-Bootstrap the Cluster::
-When all the cluster nodes are installed and rebooted, use the client system again to login and access the Velum Dashboard web-interface at the FQDN of the Administration Node to continue the cluster formation.
-* There should be a corresponding list of nodes in the "Pending Nodes" section, so select "Accept All Nodes".
-** Designate the "Master" and "Worker" to the respective nodes, then "Next".
-** Enter the Kubernetes Master LB/HAProxy virtual IP FQDN setting for the "External Kubernetes API FQDN".
-** Enter the FQDN of the Administration Node in "External Dashboard FQDN". Then select "Bootstrap Cluster".
-** Once this process completes, you should have a fully functional {CompanyName} {ProductName} cluster. You can validate this by logging into the Administration Node and running:
-
-----
-root@caasp-admin# kubectl cluster-info
-root@caasp-admin# kubectl get nodes
-root@caasp-admin# kubectl get pods -n kube-system
-----
-
-** You can also validate this by logging into a client system:
-*** Using a web browser, login to the Velum Dashboard web-interface with the admin credentials at the FQDN of the Administration Node.
-*** Download the 'kubeconfig' file, and put a copy in the default location of '\~/.kube/config'.
-*** Ensure the client system has `kubectl` installed, then run the same set of `kubectl` commands from the previous section.
-
-NOTE: If using a {CompanyName} Linux Enterprise 12 or newer release host as the client, both the `kubectl` and `helm` commands can be found in https://packagehub.suse.com/[{CompanyName} Package Hub].
-
-* To further validate the functionality of the cluster, you can find a representative set of the upstream Kubernetes conformance test suite at https://github.com/heptio/sonobuoy[Heptio / Sonobuoy]. This can be easily run via a browser from the client system that has access to the admin 'kubeconfig' file as noted in the "Getting Started" section of this site.
-
-=== Additional Considerations
-
-Review the information in the tables below to understand the administration aspects of the cluster. In addition, review the following sections of the https://www.suse.com/documentation/suse-caasp-3/[{CompanyName} {ProductName} Administration Guide]:
-* Changing or scaling  the cluster node count by adding and removing resource nodes
-* Updating the cluster node's operating system and core packages
-* Setting up resource metrics gathering and visualization
-* Addressing security, by creating users and managing fine-grained, role-based access controls
-* Creating and utilizing a local container image registry
-* Accessing log locations and creating collection options
 
 == Conclusion
 After understanding and working through the steps described in this document, you should have a working container-as-a-service platform that is scalable through the addition of even more resource nodes, as needed. {CompanyName} {ProductName} provides a complete suite of the necessary software and processes which leverages the composability aspect of {IHVPartner} {IHVPlatform} to create a production-worthy and agile platform for deployment of containerized microservice workloads.
 
 
 == Resources and additional links
-
-{IHVPartner} {IHVPlatform}:: 
-* {IHVPartner} {IHVPlatform} {IHVPlatformModel} System - https://www.hpe.com/us/en/product-catalog/synergy/synergy-compute/pip.hpe-synergy-480-gen10-compute-module.1010025863.html
-
-[cols=",,,,", options="header"]
-.Bill of Materials - {IHVPartner} {IHVPlatform}
-|===
-|*_Role_*|*_Quantity_*|*_Product Number_*|*_Product_Description_*|*_Notes_*
-|Frame|1|797740-B22|{IHVPartner} {IHVPlatform} 12000 Frame Configure-to-order Frame with 2x FLM 6x Power Supplies 10x Fans|
-||1|804353-B22|{IHVPartner} {IHVPlatform} {IHVPlatformComposer}|add second module for HA configuration
-|Administration Node|1|871946-B21|{IHVPartner} {IHVPlatform} 480 Gen10 3104 1P 16GB-R S100i SATA Entry Compute Module|
-|Master Node|1|871946-B21|{IHVPartner} {IHVPlatform} 480 Gen10 3104 1P 16GB-R S100i SATA Entry Compute Module|recommend 3 for HA configuration
-|Worker Node|1|871946-B21|{IHVPartner} {IHVPlatform} 480 Gen10 3104 1P 16GB-R S100i SATA Entry Compute Module|minimum of 2, but can scale to <100
-|===
-
-{ProductName}::
-* Product Documentation - https://www.suse.com/documentation/suse-caasp-3/
-
-[cols=",,,,", options="header"]
-.Bill of Materials - Software
-|===
-|*_Role_*|*_Quantity_*|*_Product Number_*|*_Description_*|*_Notes_*
-|Software|1|Q9K53AAE|{CompanyName} {ProductName}, 1-2 Sockets 3yr 24x7 | for each node of the deployment
-|===
