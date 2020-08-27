@@ -1,7 +1,10 @@
 ## SUSE AI Orchestrator Brings Order To The Aritificial Intelligence Infrastructure Landscape
 
 #### Artificial Intelligence / Machine Learning: The Opportunity
-
+:CompanyName: SUSE
+:ProductName: AI Orchestrator
+:ProductNameCaaSP: CaaS Platform
+:ProductNameSES: Enterprise Storage
 * 
 * 
 * 
@@ -18,20 +21,21 @@ Several industry analysts have pointed out the https://papers.nips.cc/paper/5656
 When SUSE set out to create a new, indispensible AI/ML tool for its customers, we were certain that we didn't want to create just another workspace/orchestrator/training/analysis tool. What the wild west that is AI/ML needs more than anything else is a tool that returns control of the tools to the AI consumer and improves the chances of success for every AI/ML project.
 
 From the outset, in creating the SUSE AI Orchestrator we followed three primary guidelines: 
-* Ensure Data Scientists are able to stay focused on creating, analyzing, and refining their data models
-* Return control of the AI Platforms, and the expendatures on them, to AI Operations
-* Enable new avenues of collaboration between Data Scientists, AI Engineers, and AI Operators
+* Enable Data Scientists to stay focused on the creative end of data model design and development
+* Significantly improve the visibility and control of the AI Platforms, as well as the expendatures that go with them, for the AI Operations teams
+* Improve cross team visibility and enable new avenues of collaboration between Data Scientists, AI Engineers, and AI Operators
+* Enable model pipeline execution on virtually any platform, from a single workstation, to Kubeflow, to any public cloud provider; all without having to rewrite any part of the model or pipeline definition.
 
 .A Closer Look: The Data Scientist
 The Data Scientist is the most important element in any Artificial Intelligence inititive. The more time she can spend creating, analyzing, and refining her data models more chances of success the project will have. Unfortunately, the reality is that there are several other elements of the project that will siphone off her time. 
 
 Often, Data Scientists prefer to build, and initally test, their models on their own local workstation. This gives them full control of the AI platform and tends to work well for the initial process of model development. However, to move the model into the next phases of development, the work needs to continue with more computing power and a much larger data set. In addition, many data processing and model tuning steps must be taken as the model (and even multiple variations of the model) continue through development. 
 
-Unfortunately, far too often a data science team will perform many of these operations manually, or with custom scripts and "one-off" tools. In the end, they will spend more time cultivating a custom ecosphere for a single project than XYZ.
+Unfortunately, far too often a data science team will perform many of these operations manually, or with custom scripts and "one-off" tools. In the end, they will spend more time cultivating a custom ecosphere for a single project than developing the model. While most every data scientist understands the benefit of leveraging AI pipeline systems such as Apache Airflow and Kubeflow, it also represents even more work to learn and code the meta language to convert all of the data processing and model valdation/tuning steps into a pipeline. This is where the SUSE {productname} fulfills its promise of keeping data scientists focused on creative endeavors. By analyzing the ML model, the SUSE {productname} can determine the flow of tasks required to develop a funcioning pipeline for the model development. During this analysis, the {productname} will develop and display a directed acyclic graph the tasks and even show the progress of an analytic run of the model through the graph.
 
 Translating the data analysis model into a full pipeline that collects, organizes and cleans the larger dataset; provides the desired final output (NTS: Need much better view of what it takes to go from basic model to runnable pipeline) takes valuable time that the Data Scientist could be using to continue to build a model into a production ready artifact.
 
-Once the data model is runable as an AI pipeline, the project will often stick to that platform, even if it's not be the optimal one. The desire to avoid having to adapt data models to a new analysis platform can slow productivity and eventually doom the project entirely. 
+Once an ML model has been adapted to a more powerful AI platform, whether that is through custom scripts or pipeline software, the project team will often prefer to stick to that platform, rather than face having to recreate the work it took to adapt it the first time. This means some teams may start with overly costly platforms and other may stay with underperforming platforms longer than they should. Fortnately, the users of the SUSE {productname} have left those worries far behind. The {productname} desire to avoid having to adapt data models to a new analysis platform can slow productivity and eventually doom the project entirely. 
 
 What is desparetly need is the flexibility to run data models on various AI platforms in a highly dynamic way. By automatically adapting the data model to the chosen AI platform, SUSE AI Orchestrator relieves the Data Scientist of the burden of learning each AI platform and lets him focus on what he does best.
 
