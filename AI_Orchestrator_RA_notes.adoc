@@ -8,7 +8,7 @@
 ** It also leaves AI Operations without the ability to effectively manage the comapany's AI Platforms 
 ** It also adds friction in adopting new AI platforms in the form of excessive time to value
 ** It also means adopting new AI Platforms won't return value until Data Scientists adapt their models to the new platform
-* Many Data Scientists, and even AI Operations teams, will gravitate to one or two AI platforms rather than take on the challenge of onboarding and proving another technology. When we look at the different applications needed for data management, notebooks/workspaces, workflow and lifecycle management, and more; the task of bringing in new technologies can be overwhelming.
+* Many Data Scientists, and even AI Operations teams, will gravitate to one or two AI platforms rather than take on the challenge of onboarding and proving another technology. In the light of all of the applications needed for data processing/management, notebooks/workspaces, pipeline/workflow, model lifecycle management, and more; the task of bringing in new technologies can feel overwhelming.
 
 
 
@@ -19,7 +19,7 @@
 ** Enable new avenues of collaboration between Data Scientists and AI Operators
 
 .Random Thoughts
-* DS has to adapt her model into a pipeline for a specific platform
+* DS has to adapt her model into a pipeline for each specific platform
 ** Often an effort of trial and error to find the right combination of code and runtime options
 ** SAIO allows DS to create model in their development platform of choice 
 ** DS points SAIO to their AI/ML model in any Git repo 

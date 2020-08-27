@@ -22,7 +22,7 @@ When SUSE set out to create a new, indispensible AI/ML tool for its customers, w
 
 From the outset, in creating the SUSE AI Orchestrator we followed three primary guidelines: 
 * Enable Data Scientists to stay focused on the creative end of data model design and development
-* Significantly improve the visibility and control of the AI Platforms, as well as the expendatures that go with them, for the AI Operations teams
+* Significantly improve the visibility and control over the AI Platforms, as well as the expendatures that go with them, for the AI Operations teams
 * Improve cross team visibility and enable new avenues of collaboration between Data Scientists, AI Engineers, and AI Operators
 * Enable model pipeline execution on virtually any platform, from a single workstation, to Kubeflow, to any public cloud provider; all without having to rewrite any part of the model or pipeline definition.
 
