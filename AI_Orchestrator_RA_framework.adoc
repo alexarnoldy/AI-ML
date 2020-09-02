@@ -22,11 +22,11 @@
 {Author}, {CompanyName} < {AuthorEMail} >
 
 == Executive Summary
-This reference configuration is designed to help organizations understand and take full advantage of the SUSE {ProductName} to manage workloads run on an {MarketCategory} framework. While SUSE {productname} can manage multiple {marketcategoryabbreviation} frameworks, both on-premise and in any cloud provider, this document focuses on using {productname} to manage Kubeflow running on {productnamecaasp}. This document provides an archtitectural overview and value anaylsis for using {productname} to manage the work of adapting and running ML analysis model pipelines a production-ready Kubeflow deployment. Finally, it provides design considerations, implementation suggestions and best practices.
+This reference configuration is designed to help organizations understand and take full advantage of the SUSE {ProductName} to manage workloads run on an {MarketCategory} framework. While SUSE {productname} can manage multiple {marketcategoryabbreviation} frameworks, both on-premise and the cloud. This document focuses on using {productname} to manage Kubeflow running on {productnamecaasp}. This document provides an archtitectural overview and value anaylsis for using {productname} to manage the work of adapting and running ML analysis model pipelines a production-ready Kubeflow deployment. Finally, it provides common design considerations, implementation suggestions and best practices.
 
-For most enterprise-level businesses, the demand for {marketcategoryabbreviation} projects is increasing rapidly. As with any cutting edge technology, inititives can quickly bogged down in cumbersome tasks managing the https://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf[Hidden Technical Debt of Machine Learning Systems]. Fortunately, {marketcategoryabbreviation} projects have a well defined decipline in the world of DevOps to follow. As in the DevOps world, one of the most important keys to success in many {marketcategory} projects is leveraging technologies that minimize manual intervention and maximize repeatability.
+For most enterprise-level businesses, the demand for {marketcategoryabbreviation} projects is increasing rapidly. As with any cutting edge technology, inititives can quickly mired in cumbersome management tasks https://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf[Hidden Technical Debt of Machine Learning Systems]. Fortunately, {marketcategoryabbreviation} projects have a well defined decipline in the world of DevOps to follow. As in the DevOps world, one of the most important keys to success in many {marketcategory} projects is leveraging technologies that minimize manual intervention and maximize repeatability.
 
-Implementing an intelligent, automation-focused management layer, such as {productname} enables you to transform your {marketcategoryabbreviation} from requiring an almost impossible to define number of manual steps into a clearly defined effort with diciplined and repeatable steps and milestones. In addition, the SUSE {productname} enables AI Operations teams to track and influence the resources expended on {marketcategoryabbreviation} projects and even individual analysis runs. 
+Implementing an intelligent, automation-focused management layer, such as {productname} enables you to transform your {marketcategoryabbreviation} from requiring an almost impossible to define number of manual steps into a clearly defined effort with repeatable steps and milestones. In addition, the SUSE {productname} enables AI Operations teams to track and influence the resources expended on {marketcategoryabbreviation} projects and even individual analysis runs. 
 
 == Target Audience
 This document is intended for IT decision makers, architects, data scientists and AI operators who are implementing an ever increasing number of {marketcategoryabbreviation} projects; and struggling under the friction of bringing {marketcategoryabbreviation} models from design to revenue generating production.  You should be familiar with the traditional IT infrastructure pillars—networking, computing and storage—along with key concepts in the field of developing, testing, and deploying {marketcategory} predictive models.
@@ -36,28 +36,31 @@ When SUSE set out to create a new, indispensible {marketcategoryabbreviation} to
 
 From the outset, in creating the SUSE {productname} we followed several primary guidelines: 
 * Enable Data Scientists to stay focused on the creative end of data model design and development
-* Significantly improve the visibility and control over the AI Platforms, as well as the expendatures that go with them, for the AI Operations teams
+* Significantly improve the visibility and control for the AI Operations team over the AI Platform and expendatures
 * Improve cross team visibility and enable new avenues of collaboration between Data Scientists, AI Engineers, and AI Operators
 * Enable model pipeline execution on virtually any platform, from a single workstation, to Kubeflow, to any public cloud provider; all without having to rewrite any part of the model or pipeline definition.
 
 
-As an {marketcategoryabbreviation} pipeline development and management tool, the SUSE {productname} has the ability to manage operations on multiple platforms. With its large community of developers and a plethora of features and capabilities, the he initial focus of the {productname} is Kubeflow running on SUSE {productnamecaasp}. 
+As an {marketcategoryabbreviation} pipeline development and management tool, the SUSE {productname} has the ability to manage operations on multiple platforms. With its large community of developers and a plethora of features and capabilities, the initial focus of the {productname} is Kubeflow running on SUSE {productnamecaasp}. 
 
 
 == Solution Components
 
 === Facility
-SUSE {productname} is a fully containerized Linux application and thus can run on any platform that is configured to run Linux containers. While a small data science team may choose to run the {productname} on a workstation, most customers will likely prefer to run it within a highly resilient container ochestrator, such as SUSE {productnamecaasp}.
+SUSE {productname} is a fully containerized Linux application and can run on any platform that is configured to run Linux containers. While a small data science team may choose to run the {productname} on a workstation, most customers will likely prefer to run it within a highly resilient container ochestrator, such as SUSE {productnamecaasp}.
 
 === {marketcategoryabbreviation} Platform
 Kubeflow is a open-source machine learning platform that enables running machine learning projects on a highly resilient and scalable Kubernetes platform. Kubeflow is actually a collection of nearly a dozen different {marketcategoryabbreviation} frameworks and tools including Jupyter Notebook, TensorFlow, and Pytorch. Being a Kubernetes application suite, the installation and initial configuration is deceptively simple; though the resultant set of applications is one of the most powerful in the industry.
 
 === {productnamecaasp} Platform
-{CompanyName} {ProductName} is an enterprise-class container management solution that enables IT and DevOps professionals to more easily deploy, manage, and scale container-based applications and services. It includes Kubernetes to automate lifecycle management of modern applications and surrounding technologies that enrich Kubernetes and make the platform itself easy to operate. As a result, enterprises that use {CompanyName} {ProductName} can reduce application delivery cycle times and improve business agility.
+{CompanyName} {ProductName} is an enterprise-class container management solution that enables IT and DevOps professionals to more easily deploy, manage, and scale container-based applications and services. It includes Kubernetes to automate lifecycle management of modern applications and surrounding technologies that enrich Kubernetes, built from industry-leading technologies, and delivered as a complete package — with everything you need to quickly offer container services. As a result, enterprises that use {CompanyName} {ProductName} can reduce application delivery cycle times and improve business agility.
 
 {CompanyName} is focused on delivering an exceptional operator experience with {CompanyName} {ProductName}. With deep competencies in infrastructure, systems, process integration, platform security, lifecycle management and enterprise-grade support, {CompanyName} aims to ensure that IT operations teams can deliver the power of Kubernetes to their users quickly, securely and efficiently.
 
-With {CompanyName} {ProductName} you can: * Achieve faster time to value with an enterprise-ready container management platform, built from industry-leading technologies, and delivered as a complete package — with everything you need to quickly offer container services. * Simplify management and control of your container platform with efficient installation, easy scaling, and update automation. * Maximize return on your investment, with a flexible container services solution for today and tomorrow.
+With {CompanyName} {ProductName} you can:
+* Achieve faster time to value with an enterprise-ready container management platform
+* Simplify management and control of your container platform with efficient installation, easy scaling, and update automation. 
+* Maximize return on your investment, with a flexible container services solution for today and tomorrow.
 
 
 === Storage
