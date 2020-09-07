@@ -102,7 +102,7 @@ As both SUSE {productnamecaasp} and {productnameses} are scale out solutions, ne
 
 VLAN isolation should be used to separate, at a minimum, compute traffic from backend storage traffic. Further isolation would provide a minimum level of security isolation while maximizing network switch performance. Additional VLANs could be used to segregate external traffic reaching the load balancer(s), {productnamecaasp} traffic, and {productnameses} Storage-Backend.
 
-It is often said that the chain is only as strong as its weakest link. That is certainly true if the weakest link is the network. It makes no sense connecting highly powerful servers with unreliable or underperforming network hardware. For this reason we were pleased to be able to leverage the speed and reliability of the {companyname} {ihvnetworkmodel} {ihvnetworkspeed} switches.
+It is often said that the chain is only as strong as its weakest link. That is certainly true if the weakest link is the network. It makes no sense connecting highly powerful servers with unreliable or underperforming network hardware. For this reason we were pleased to be able to leverage the speed and reliability of the {ihvpartner} {ihvnetworkmodel} {ihvnetworkspeed} switches.
 
 <<<<IHV Partner: Include a short marketing description (not a BOM) of the network switches used.>>>>
 
