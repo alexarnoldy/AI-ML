@@ -47,11 +47,7 @@ As an {marketcategoryabbreviation} pipeline development and management tool, the
 == Solution Components
 
 === Facility
-<<<<<<< HEAD
-SUSE {productname} is a fully containerized Linux application and thus can run on any platform that is configured to run Linux containers. While a small data science team may choose to run the {productname} on a workstation, most customers will likely prefer to run it within a highly resilient container ochestrator, such as SUSE {productnamecaasp}. This document focuses on runing {productname} on SUSE {productnamecaasp} alongside Kubeflow.
-=======
 SUSE {productname} is a fully containerized Linux application and can run on any platform that is configured to run Linux containers. While a small data science team may choose to run the {productname} on a workstation, most customers will likely prefer to run it within a highly resilient container ochestrator, such as SUSE {productnamecaasp}.
->>>>>>> e5cd9f3fe86cfd0c298798470ba003ba85a173c1
 
 === {marketcategoryabbreviation} Platform
 Kubeflow is a open-source machine learning platform that enables running machine learning projects on a highly resilient and scalable Kubernetes platform. Kubeflow is actually a collection of nearly a dozen different {marketcategoryabbreviation} frameworks and tools including Jupyter Notebook, TensorFlow, and Pytorch. Being a Kubernetes application suite, the installation and initial configuration is deceptively simple; though the resultant set of applications is one of the most powerful in the industry.
