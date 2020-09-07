@@ -9,11 +9,15 @@
 :IHVPartner: Dell
 :IHVNetwork: NotApplicable
 :IHVPlatform: PowerEdge 
+:IHVSESPlatform: PowerEdge 
 :IHVPlatformComposer: NotApplicable
 :IHVPlatformComposerTech: NotApplicable
 :IHVPlatformImager: NotApplicable
 :IHVPlatformModel: R740xd
+:IHVSESPlatformModel: R740xd2
 :IHVPlatformBMC: iDRAC
+:IHVNetworkModel: PowerSwitch S Series
+:IHVNetworkSpeed: 25GbE
 
 :MarketCategory: Artifical Intelligence / Machine Learning
 :MarketCategoryAbbreviation: AI/ML
@@ -22,9 +26,9 @@
 {Author}, {CompanyName} < {AuthorEMail} >
 
 == Executive Summary
-This reference configuration is designed to help organizations understand and take full advantage of the SUSE {ProductName} to manage workloads run on an {MarketCategory} framework. While SUSE {productname} can manage multiple {marketcategoryabbreviation} frameworks, both on-premise and the cloud. This document focuses on using {productname} to manage Kubeflow running on {productnamecaasp}. This document provides an archtitectural overview and value anaylsis for using {productname} to manage the work of adapting and running ML analysis model pipelines a production-ready Kubeflow deployment. Finally, it provides common design considerations, implementation suggestions and best practices.
+This reference configuration is designed to help organizations understand and take full advantage of the SUSE {ProductName} to manage workloads run on an {MarketCategory} frameworks. While SUSE {productname} can manage multiple {marketcategoryabbreviation} frameworks, both on-premise and the cloud. This document focuses on using {productname} to manage Kubeflow running on SUSE {productnamecaasp}. This document provides an archtitectural overview and value anaylsis for using {productname} to manage the work of adapting and running ML analysis models production-ready Kubeflow Pipelines. Finally, it provides common design considerations, implementation suggestions and best practices.
 
-For most enterprise-level businesses, the demand for {marketcategoryabbreviation} projects is increasing rapidly. As with any cutting edge technology, inititives can quickly mired in cumbersome management tasks https://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf[Hidden Technical Debt of Machine Learning Systems]. Fortunately, {marketcategoryabbreviation} projects have a well defined decipline in the world of DevOps to follow. As in the DevOps world, one of the most important keys to success in many {marketcategory} projects is leveraging technologies that minimize manual intervention and maximize repeatability.
+For most enterprise-level businesses, the demand for {marketcategoryabbreviation} projects is increasing rapidly. All too often these projects start in a piecemeal fashion requiring excessive custom, non-reusble steps as they progress. Unfortunately, many of these projects are doomed to a painful path to inevitable failure as their highly skilled proprietors become mired in cumbersome tasks of creating, and then maintaining, the custom infrastructure for a single project. This well documented problem as been come to be known in the {marketcategoryabbreviation} space as the https://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf[Hidden Technical Debt of Machine Learning Systems]. Fortunately, {marketcategoryabbreviation} professionals already have a well defined decipline to follow in the world of DevOps. As in the DevOps world, one of the most important keys to success in many {marketcategory} projects is leveraging technologies that minimize manual intervention and maximize repeatability.
 
 Implementing an intelligent, automation-focused management layer, such as {productname} enables you to transform your {marketcategoryabbreviation} from requiring an almost impossible to define number of manual steps into a clearly defined effort with repeatable steps and milestones. In addition, the SUSE {productname} enables AI Operations teams to track and influence the resources expended on {marketcategoryabbreviation} projects and even individual analysis runs. 
 
@@ -36,7 +40,7 @@ When SUSE set out to create a new, indispensible {marketcategoryabbreviation} to
 
 From the outset, in creating the SUSE {productname} we followed several primary guidelines: 
 * Enable Data Scientists to stay focused on the creative end of data model design and development
-* Significantly improve the visibility and control for the AI Operations team over the AI Platform and expendatures
+* Significantly improve the visibility and control for the AI Operations team over the AI Platforms and expendatures
 * Improve cross team visibility and enable new avenues of collaboration between Data Scientists, AI Engineers, and AI Operators
 * Enable model pipeline execution on virtually any platform, from a single workstation, to Kubeflow, to any public cloud provider; all without having to rewrite any part of the model or pipeline definition.
 
@@ -65,18 +69,42 @@ With {CompanyName} {ProductName} you can:
 === Compute
 While the needs of the SUSE {productname} are fairly low, Kubeflow is powerful {marketcategoryabbreviation} platform that needs significant resources to reach its maximum potential. The {productname} can be deployed either on an {marketcategoryabbreviation} workstation or a Kubernetes cluster. For the purposes of this document, the {productname} was deployed in the same Kubernetes cluster as Kubeflow and thus its additional resource consumption is negliable.
 
-Most {marketcategoryabbreviation} workloads follow a fairly predictable set of rules in terms of compute resource needs. Training and validation workloads take full advantage of GPUs. The needs of serving workloads can often be met with Entperise class CPUs with an above average number of cores per processor. 
+Most {marketcategoryabbreviation} workloads follow a fairly predictable set of rules in terms of compute resource needs. Training and validation workloads take full advantage of Enterprise class GPUs. However, the needs of purely serving workloads can often be met with Data Center CPUs with an above average number of cores per processor. 
 
-As with most every workload on modern compute infrastructure, the most constraining factor is the amount of memory for applications. One moderating consideration to this is to ensure a balance the amount of memory per physical server with the number of application servers in the cluster. One must always plan for the impact of the failure of a single control plane or application server. 
+As with most every workload on modern compute infrastructure, the most constraining factor for {marketcategory} applications is the quantity of memory available to them. While one approach might be to maximize the amount of memory per application server, a moderating consideration to this would be to balance the amount of memory per physical server with the number of application servers in the cluster. One must always plan for the impact of the failure of a single control plane or application server. Ideally, the failure of a single application server shouldn't impact more than 10% - 15% of the total workload.
+
+For this solution, the {ihvpartner} {ihvplatform} servers were ideal in terms of CPU, memory, and network capabilities. 
+
+<<<<IHV Partner: Include a short marketing description (not a BOM) of the compute servers used.>>>>
 
 === Storage
 Many of the Kubeflow applications leverage a large amount of highly available, highly resilient, persistent storage.
-SUSE {productnamecaasp} can access both network block and object storage via the modular Container-Storage-Interface (CSI) technologies. 
-One of the most popular storage solutions available for containerized workloads is SUSE {productnameses}, which is a Ceph-based, software-defined storage infrastructure. In addition to versatility, SUSE {productnameses} can scale into the dozens of petabytes while scaling linearly in performance.
+
+SUSE {productnamecaasp} can access both network block and object storage via the modular Container-Storage-Interface (CSI) technologies. A customer can leverage an existing storage platform, that serve multiple workloads in the data center, and thus maximize the value of existing assets. Alternatively, a dedicated storage solution can be deployed to ensure maximum performance and capacity is available for the company's {marketcategoryabbreviation} projects.
+
+One of the most popular storage solutions available for containerized workloads is SUSE {productnameses}, which is a Ceph based, software-defined storage infrastructure. In addition to versatility, SUSE {productnameses} can scale into the dozens of petabytes while scaling linearly in performance.
+
+When developing a Ceph based storage solution, balance is key. To reach maximum performance and resiliency, one must balancing the CPUs, memory, and network capacity with that of the storage drives (as well as SSD/NVMe accelerators) per node. As well, the capacity of each node should be in balance with the number number of nodes in the cluster. Just as with the Kubernetes worker nodes, the impact of a single node failure must not severely impact the performance or availability of the entire cluster.
+
+While there are a myriad of options available, we found that the {ihvpartner} {ihvsesplatform} {ihvsesplatformmodel} servers were outstanding for this role.
+
+<<<<IHV Partner: Include a short marketing description (not a BOM) of the storage servers used.>>>>
 
 NOTE: Such integrations, with solutions like {CompanyName} {ProductNameSES}, are detailed in other reference documents.
 
 === Network
+
+While the network for this solution does not need to be complex; there are a few, critical features to consider when designing it.
+
+A network load balancer is required for high availability of the {productnamecaasp} master nodes. An additional load balancer should be provided for the application workload running on the {productnamecaasp} cluster. These can be hardware or software based, but are outside the scope of this document.
+
+As both SUSE {productnamecaasp} and {productnameses} are scale out solutions, network resiliency is a base expectation. Any single point of failure in the network design could lead to performance penalties up to in including significant data loss.
+
+VLAN isolation should be used to separate, at a minimum, compute traffic from backend storage traffic. Further isolation would provide a minimum level of security isolation while maximizing network switch performance. Additional VLANs could be used to segregate external traffic reaching the load balancer(s), {productnamecaasp} traffic, and {productnameses} Storage-Backend.
+
+It is often said that the chain is only as strong as its weakest link. That is certainly true if the weakest link is the network. It makes no sense connecting highly powerful servers with unreliable or underperforming network hardware. For this reason we were pleased to be able to leverage the speed and reliability of the {companyname} {ihvnetworkmodel} {ihvnetworkspeed} switches.
+
+<<<<IHV Partner: Include a short marketing description (not a BOM) of the network switches used.>>>>
 
 == Solution Details
 This document focuses on the advanages of an {marketcategoryabbreviation} solution stack centered around the {CompanyName} {ProductName}.
@@ -96,3 +124,5 @@ The {marketcategory} market is growing at a break-neck pace. Most {marketcategor
 
 
 == Resources and additional links
+
+<<<<IHV Partner: Provide high level product BOMs for Compute, Storage, and Network devices; as well as any web links.>>>>
