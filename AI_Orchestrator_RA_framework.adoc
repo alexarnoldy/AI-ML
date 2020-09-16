@@ -24,7 +24,7 @@
 :MarketCategory: Artifical Intelligence / Machine Learning
 :MarketCategoryAbbreviation: AI/ML
 
-{doctitle}
+= {doctype} {doctitle}
 
 = Reference Configuration: {CompanyName} {ProductName} with {IHVPartner} {IHVPlatform}
 {Author}, {CompanyName} < {AuthorEMail} >
