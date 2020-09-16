@@ -1,5 +1,4 @@
-:DocTitle: {doctype}: {CompanyName} {ProductName} with {IHVPartner} {IHVPlatform}
-:DocType: Reference Configuration
+:SUSEDocType: Reference Configuration
 :Author: Alex Arnoldy
 :AuthorEMail: Alex.Arnoldy@SUSE.com
 
@@ -24,9 +23,8 @@
 :MarketCategory: Artifical Intelligence / Machine Learning
 :MarketCategoryAbbreviation: AI/ML
 
-= {doctype} {doctitle}
+= {susedoctype}: {CompanyName} {ProductName} with {IHVPartner} {IHVPlatform}
 
-= Reference Configuration: {CompanyName} {ProductName} with {IHVPartner} {IHVPlatform}
 {Author}, {CompanyName} < {AuthorEMail} >
 
 == Executive Summary
@@ -135,6 +133,6 @@ The {marketcategory} market is growing at a break-neck pace. Most {marketcategor
 
 == Resources and additional links
 
-include::https://github.com/alexarnoldy/_includes/blob/master/IHV/{IHVPartner}/{IHVNetwork}.adoc[]
+include::https://github.com/alexarnoldy/_includes/blob/master/IHV/{IHVPartner}/{susedoctype}-{CompanyName}-{ProductName}-BOM.adoc[]
 
 <<<<IHV Partner: Provide high level product BOMs for Compute, Storage, and Network devices; as well as any web links.>>>>
