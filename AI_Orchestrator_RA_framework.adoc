@@ -75,7 +75,7 @@ As with most every workload on modern compute infrastructure, the most constrain
 
 For this solution, the {ihvpartner} {ihvplatform} servers were ideal in terms of CPU, memory, and network capabilities. 
 
-include::../_includes/IHV/{IHVPartner}/{IHVPlatform}.adoc[]
+include::https://github.com/alexarnoldy/_includes/IHV/{IHVPartner}/{IHVPlatform}.adoc[]
 
 <<<<IHV Partner: Include a short marketing description (not a BOM) of the compute servers used.>>>>
 
