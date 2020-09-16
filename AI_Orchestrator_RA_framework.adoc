@@ -77,7 +77,7 @@ For this solution, the {ihvpartner} {ihvplatform} servers were ideal in terms of
 
 include::https://github.com/alexarnoldy/_includes/IHV/{IHVPartner}/{IHVPlatform}.adoc[]
 
-include::https://github.com/alexarnoldy/_includes/blob/master/IHV/Dev_Null/DN-100-Compute.adoc[]
+include::https://github.com/alexarnoldy/_includes/blob/master/IHV/{IHVPartner}/{IHVPlatform}.adoc[]
 
 <<<<IHV Partner: Include a short marketing description (not a BOM) of the compute servers used.>>>>
 
