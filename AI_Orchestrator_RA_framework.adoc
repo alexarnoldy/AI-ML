@@ -6,17 +6,17 @@
 :ProductNameCaaSP: CaaS Platform
 :ProductNameSES: Enterprise Storage
 
-:IHVPartner: Dell
-:IHVNetwork: NotApplicable
-:IHVPlatform: PowerEdge 
-:IHVSESPlatform: PowerEdge 
+:IHVPartner: Dev_Null
+:IHVNetwork: DN-100-Network
+:IHVPlatform: DN-100-Compute 
+:IHVSESPlatform: DN-100-Storage 
 :IHVPlatformComposer: NotApplicable
 :IHVPlatformComposerTech: NotApplicable
 :IHVPlatformImager: NotApplicable
-:IHVPlatformModel: R740xd
-:IHVSESPlatformModel: R740xd2
-:IHVPlatformBMC: iDRAC
-:IHVNetworkModel: PowerSwitch S Series
+:IHVPlatformModel: DN-100-compute
+:IHVSESPlatformModel: DN-100-storage
+:IHVPlatformBMC: DN-BMC
+:IHVNetworkModel: DN-100-network
 :IHVNetworkSpeed: 25GbE
 
 :MarketCategory: Artifical Intelligence / Machine Learning
@@ -74,6 +74,8 @@ Most {marketcategoryabbreviation} workloads follow a fairly predictable set of r
 As with most every workload on modern compute infrastructure, the most constraining factor for {marketcategory} applications is the quantity of memory available to them. While one approach might be to maximize the amount of memory per application server, a moderating consideration to this would be to balance the amount of memory per physical server with the number of application servers in the cluster. One must always plan for the impact of the failure of a single control plane or application server. Ideally, the failure of a single application server shouldn't impact more than 10% - 15% of the total workload.
 
 For this solution, the {ihvpartner} {ihvplatform} servers were ideal in terms of CPU, memory, and network capabilities. 
+
+include::../../../_includes/IHV/{IHVPartner}/{IHVPlatform}.adoc[]
 
 <<<<IHV Partner: Include a short marketing description (not a BOM) of the compute servers used.>>>>
 
