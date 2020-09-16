@@ -5,6 +5,7 @@
 
 :CompanyName: SUSE
 :ProductName: AI Orchestrator
+:ProductNameNoSpaces: AI-Orchestrator
 :ProductNameCaaSP: CaaS Platform
 :ProductNameSES: Enterprise Storage
 
@@ -134,6 +135,6 @@ The {marketcategory} market is growing at a break-neck pace. Most {marketcategor
 
 == Resources and additional links
 
-include::https://github.com/alexarnoldy/_includes/blob/master/IHV/{IHVPartner}/{susedoctypenospaces}-{CompanyName}-{ProductName}-BOM.adoc[]
+include::https://github.com/alexarnoldy/_includes/blob/master/IHV/{IHVPartner}/{susedoctypenospaces}-{CompanyName}-{ProductNameNoSpaces}-BOM.adoc[]
 
 <<<<IHV Partner: Provide high level product BOMs for Compute, Storage, and Network devices; as well as any web links.>>>>
