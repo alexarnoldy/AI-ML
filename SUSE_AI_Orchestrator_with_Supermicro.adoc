@@ -21,6 +21,7 @@
 
 :MarketCategory: Artifical Intelligence / Machine Learning
 :MarketCategoryAbbreviation: AI/ML
+:imagesdir: ./
 
 = Reference Configuration: {CompanyName} {ProductName} with {IHVPartner} {IHVPlatform}
 {Author}, {CompanyName} < {AuthorEMail} >
@@ -135,6 +136,9 @@ The {marketcategory} market is growing at a break-neck pace. Most {marketcategor
 
 == Resources and additional links
 
+image::SUSEAIOrchestratorHighLevelBoM-1-1.pdf
+image::SUSEAIOrchestratorHighLevelBoM-2.pdf
+////
 .Supermicro BOM for CaaS Platform
 |===
 |Role |System/Component |Part Number |QTY/node |Part Description
@@ -156,4 +160,5 @@ Dedicated Data Communication https://www.supermicro.com/en/products/accessories/
 |AS-1114S-WTRT 
 |2
 |SUSE CaaS 4.5 Kubernetes Admin
+////
 
