@@ -137,7 +137,10 @@ The {marketcategory} market is growing at a break-neck pace. Most {marketcategor
 == Resources and additional links
 
 image::SUSEAIOrchestratorHighLevelBoM-1-1.pdf
+
 image::SUSEAIOrchestratorHighLevelBoM-2.pdf
+
+
 ////
 .Supermicro BOM for CaaS Platform
 |===
