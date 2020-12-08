@@ -21,7 +21,7 @@
 
 :MarketCategory: Artifical Intelligence / Machine Learning
 :MarketCategoryAbbreviation: AI/ML
-:imagesdir: ./
+:imagesdir: ../images
 
 = Reference Configuration: {CompanyName} {ProductName} with {IHVPartner} {IHVPlatform}
 {Author}, {CompanyName} < {AuthorEMail} >
@@ -136,9 +136,9 @@ The {marketcategory} market is growing at a break-neck pace. Most {marketcategor
 
 == Resources and additional links
 
-image::SUSEAIOrchestratorHighLevelBoM-1-1.pdf
+image::Supermicro-SUSEAIOrchestratorHighLevelBoM-1-1.pdf
 
-image::SUSEAIOrchestratorHighLevelBoM-2.pdf
+image::Supermicro-SUSEAIOrchestratorHighLevelBoM-2.pdf
 
 
 ////
