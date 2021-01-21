@@ -8,7 +8,7 @@
 
 :IHVPartner: Supermicro
 :IHVNetwork: NotApplicable
-:IHVPlatform: Server
+:IHVPlatform: Servers
 :IHVSESPlatform: Storage Server
 :IHVPlatformComposer: NotApplicable
 :IHVPlatformComposerTech: NotApplicable
