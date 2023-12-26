@@ -1,0 +1,55 @@
+## Basic installation
+
+* https://z2jh.jupyter.org/en/stable/jupyterhub/installation.html
+** Best with an LB, but can also just apply an ExternalIP to the ClusterIP of the proxy-public service
+
+* To setup HTTPS, best to allocate a dedicated IP to the LB and resolve it to the hostname in public DNS
+
+* There are two options: Automatic cert allocation from Let's Encrypt and Manual cert installation
+** Automatic will likely only work if the JupyterHub installation is publically routable
+*** Use this in the Helm values "config.yaml" file:
++
+----
+proxy:
+  https:
+    enabled: true
+    hosts:
+      - jupyterhub.susealliances.com
+    letsencrypt:
+      contactEmail: alex.arnoldy@suse.com
+----
+
+** Use the manual installation method if JH is behind a firewall/NAT router or if non-Let's Encrypt certs are to be used
+*** Use this in the Helm values "config.yaml" file:
++
+----
+proxy:
+  https:
+    enabled: true
+    type: manual
+    manual:
+      key: |
+        -----BEGIN RSA PRIVATE KEY-----
+        ...
+        -----END RSA PRIVATE KEY-----
+      cert: |
+        -----BEGIN CERTIFICATE-----
+        ...
+        -----END CERTIFICATE-----
+----
+
+*** Can also specfiy through a K8s secret. Create the secret in the namespace for the installation, then helm install with this in the values file:
++
+----
+proxy:
+  https:
+    enabled: true
+    hosts:
+      - jupyter.susealliances.com
+    type: secret
+    secret:
+      name: example-tls
+----
+
+
+
