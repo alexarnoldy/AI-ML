@@ -1,0 +1,90 @@
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  name: dirsrv
+spec:
+  serviceName: dirsrv-internal-svc
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dirsrv
+  template:
+    metadata:
+      labels:
+        app: dirsrv
+    spec:
+      serviceAccountName: dirsrv-sa
+      securityContext:
+        fsGroup: 389
+      initContainers:
+      # Init container is required to change the permissions after a persistent volume is mounted.
+      # Otherwise dscontainer will be denied to create subdirectories and will fail to start.
+      - name: dirsrv-init-container
+        image: busybox
+        command: ["sh", "-c", "chown -R 389:389 /data"]
+        volumeMounts:
+        - name: dirsrv-data
+          mountPath: /data
+      containers:
+        - name: dirsrv-container
+          image: quay.io/389ds/dirsrv:latest
+          env:
+          - name: DS_DM_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: dirsrv-dm-password
+                key: dm-password
+          - name: DS_SUFFIX_NAME
+            value: "dc=susealliances,dc=com"
+          ## DS_ERRORLOG_LEVEL - set the log level for `ns-slapd`, default is 266354688
+          # - name: DS_ERRORLOG_LEVEL
+          #   value: "8192"
+          ## DS_MEMORY_PERCENTAGE - set LDBM autotune percentage (`nsslapd-cache-autosize`), default is 25
+          #- name: DS_MEMORY_PERCENTAGE
+          #  value: "10"
+          ## DS_REINDEX` - run database reindex task (`db2index`)
+          # - name: DS_REINDEX
+          #   value: "True"
+          ## DS_STARTUP_TIMEOUT - set container startup timeout in seconds, default is 60 seconds.
+          # - name: DS_STARTUP_TIMEOUT
+          #   value: "120"
+          ports:
+            - containerPort: 3389
+              protocol: TCP
+              hostPort: 389
+            - containerPort: 3636
+              protocol: TCP
+              hostPort: 636
+          securityContext:
+            runAsUser: 389
+          volumeMounts:
+          - name: dirsrv-data
+            mountPath: "/data"
+          - name: dirsrv-tls
+            mountPath: '/data/tls/'
+            readOnly: true
+      volumes:
+      - name: dirsrv-tls
+        secret:
+          secretName: dirsrv-tls-secret
+          items:
+          - key: tls.key
+            path: server.key
+          - key: tls.crt
+            path: server.crt
+#      - name: dirsrv-tls-ca
+#        secret:
+#          secretName: dirsrv-tls-ca
+#          items:
+#          - key: ca1.crt
+#            path: ca1.crt
+#          - key: ca2.crt
+#            path: ca2.crt
+  volumeClaimTemplates:
+  - metadata:
+      name: dirsrv-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 10Gi

@@ -1,0 +1,5 @@
+kubectl create serviceaccount dirsrv-sa
+
+kubectl create secret tls dirsrv-tls-secret --cert=./tls.crt --key=./tls.key
+
+kubectl create secret generic dirsrv-dm-password --from-literal=dm-password='Jupyt3rHub-0n-R@ncher'

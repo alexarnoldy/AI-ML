@@ -1,3 +1,18 @@
+## Pre-installation:
+
+* Install MetalLB via Rancher Chart or https://gist.github.com/alexarnoldy/24dd06d8c4291d04c5d7065b520bcb15
+
+* Install Longhorn via Rancher chart:
+
+IMPORTANT: All nodes that run Longhorn must have the package open-iscsi installed BEFORE installing Longhorn
+
+** If storage is tight, set replicas to two under:
+*** Longhorn Default Settings (Select the checkbox "Customize Default Settings")
+*** Longhorn Storage Class Settings
+* (Optional) Set `Services and Load Balancing` Longhorn UI Service to LoadBalancer
+
+IMPORTANT: Ensure Longhorn is the only default storage class
+
 ## Basic installation
 
 * https://z2jh.jupyter.org/en/stable/jupyterhub/installation.html
@@ -7,6 +22,7 @@
 
 * There are two options: Automatic cert allocation from Let's Encrypt and Manual cert installation
 ** Automatic will likely only work if the JupyterHub installation is publically routable
+*** I wasn't able to get this to work, even on a cloud instance with wide-open a security group
 *** Use this in the Helm values "config.yaml" file:
 +
 ----
@@ -20,6 +36,7 @@ proxy:
 ----
 
 ** Use the manual installation method if JH is behind a firewall/NAT router or if non-Let's Encrypt certs are to be used
+*** This method worked for me first try
 *** Use this in the Helm values "config.yaml" file:
 +
 ----
