@@ -3,10 +3,10 @@ kubectl apply -f - <<EOF
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: suse-private-ai-staging-certificate
-  namespace: suse-private-ai
+  name: ${APPLICATION_NAME}-staging-certificate
+  namespace: ${APPLICATION_NAMESPACE}
 spec:
-  secretName: suse-private-ai-staging-certificate-secret # Kubernetes secret that will contain the tls.key and tls.crt of the new cert
+  secretName: ${APPLICATION_NAME}-staging-certificate-secret # Kubernetes secret that will contain the tls.key and tls.crt of the new cert
   commonName: ${FQDN}
   dnsNames:
     - ${FQDN}

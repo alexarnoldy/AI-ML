@@ -4,7 +4,7 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: letsencrypt-issuer
-  namespace: suse-private-ai
+  namespace: ${APPLICATION_NAMESPACE}
 spec:
   acme:
     email: ${EMAIL_ADDR}
