@@ -1,3 +1,3 @@
-for EACH in $(cat /tmp/worker-nodes); do scp configure-worker-nodes-for-longhorn.sh ${EACH}:~; done
+for EACH in $(cat /tmp/cluster-nodes); do scp configure-cluster-nodes-for-longhorn.sh ${EACH}:~; done
 
-for EACH in $(cat /tmp/worker-nodes); do ssh ${EACH} bash configure-worker-nodes-for-longhorn.sh; done
+for EACH in $(cat /tmp/cluster-nodes); do ssh ${EACH} sudo bash configure-cluster-nodes-for-longhorn.sh; done
