@@ -8,7 +8,7 @@ metadata:
 spec:
   addresses:
   - ${APPLICATION_EXTERNAL_IP}/32
-  autoAssign: false
+  autoAssign: true
 
 ---
 
