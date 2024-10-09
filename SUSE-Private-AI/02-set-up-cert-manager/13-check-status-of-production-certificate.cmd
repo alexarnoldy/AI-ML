@@ -1,1 +1,0 @@
-09-check-status-of-staging-certificate.cmd
